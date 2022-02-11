@@ -1,22 +1,17 @@
 <template>
-    <div>
-        <Header :title="title" />
-        <Portofolio />
-        <About />
-        <Contact />
-    </div>
+    <Contact />
 </template>
 <script>
 export default {
 
     data() {
       return {
-        title: 'Nuxt CMS Blog'
+        title: 'Contact - Nuxt CMS Blog'
       }
     },
     head() {
       return {
-          title: 'Nuxt CMS Blog',
+          title: 'Contact - Nuxt CMS Blog',
           meta: [
             {
                 hid: 'description',
@@ -27,7 +22,5 @@ export default {
       }
     }
 }
-
-
 
 </script>

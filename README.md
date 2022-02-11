@@ -3,7 +3,7 @@
 Deploy your [Nuxt.js](https://nuxtjs.org) project.
 
 
-_Live Demo: https://nuxt-cms-5ubb775mm-amrikarisma.vercel.app_
+_Live Demo: https://nuxt-cms-amrikarisma.vercel.app_
 
 ## Setup
 
