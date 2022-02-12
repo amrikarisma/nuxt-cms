@@ -2,9 +2,14 @@ import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-
+  publicRuntimeConfig: {
+    API_BASE: 'https://karismaid.com'
+  },
   css: [
-    '@/assets/css/styles.css',
+    '~/assets/scss/main.scss',
+  ],
+  plugins: [
+
   ],
   head: {
     title: 'Nuxt CMS Blog',
@@ -34,12 +39,14 @@ export default defineNuxtConfig({
         body: true,
       },
       {
-        src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js',
+        src: '~/js/bootstrap.bundle.min.js',
+        type: 'text/javascript',
         body: true,
       },
       {
-        src: 'https://startbootstrap.github.io/startbootstrap-freelancer/js/scripts.js',
-        body: true,
+        src : '~/js/scripts.js',
+        type: 'text/javascript',
+        body :true
       }
     ],
   }

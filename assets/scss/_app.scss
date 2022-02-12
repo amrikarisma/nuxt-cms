@@ -1,0 +1,14 @@
+@import './partials/general';
+
+// pushing footer to bottom
+#_layout, #_nuxt {
+    height: 100%;
+}
+
+// Nuxt Content
+.nuxt-content h2{
+    margin-top: 1.5em;
+}
+.nuxt-content pre{
+    border-radius: .25rem;
+}
