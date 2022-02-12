@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <NuxtLink :to="{ path: '/post/' + post.id }" class="post-thumbnail">
+                                    <NuxtLink :to="{ path: '/post/' + post.slug }" class="post-thumbnail">
                                         <img class="img-fluid" v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
                                     </NuxtLink>
                                 </div>
@@ -23,10 +23,10 @@
                                         <div class="mb-2">
                                             <span v-if="post._embedded['author']">Posted by <strong>{{ post._embedded['author'][0].name }}</strong></span> / <span v-if="post.date">{{ post.date }}</span>
                                         </div>
-                                        <NuxtLink :to="{ path: '/post/' + post.id }"><h2>{{ post.title.rendered }}</h2></NuxtLink>
+                                        <NuxtLink :to="{ path: '/post/' + post.slug }"><h2>{{ post.title.rendered }}</h2></NuxtLink>
                                         <div v-html="post.excerpt.rendered"></div>
                                         <div>
-                                            <NuxtLink :to="{ path: '/post/' + post.id }">Read More</NuxtLink>
+                                            <NuxtLink :to="{ path: '/post/' + post.slug }">Read More</NuxtLink>
                                         </div>
                                     </div>
                                 </div>
