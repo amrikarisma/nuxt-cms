@@ -1,9 +1,10 @@
 <template>
     <Blog />
 </template>
+
 <script>
 export default {
-
+    layout : 'blog',
     data() {
       return {
         title: 'Blog - Nuxt CMS Blog'

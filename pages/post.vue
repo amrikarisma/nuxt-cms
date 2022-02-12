@@ -1,6 +1,6 @@
 <script setup>
     const route = useRoute()
-    const { data : post, pending, error } = useAsyncData('post', () => $fetch(`https://karismaid.com/wp-json/wp/v2/posts/${route.params.slug}?_embed`))
+    const { data : post, pending, error } = useAsyncData('post', () => $fetch(`/wp-json/wp/v2/posts/${route.params.slug}?_embed`, { baseURL : 'https://www.kentos.org' }))
 
     useMeta({
         title : 'Blog' ,
@@ -10,7 +10,11 @@
         ],
     })
 </script>
-
+<script>
+export default {
+    layout : 'blog',
+}
+</script>
 <template>
     <section class="page-section" id="blog">
         <div class="container">
@@ -22,19 +26,18 @@
                         <div class="card" v-if="post">
                             <div class="card-body">
                                 <div class="text-center p-4">
-                                    <NuxtLink :to="{ path: '/post/' + post.slug }"><h2>{{ post.title.rendered }}</h2></NuxtLink>
-                                        Post by / Posted on <small><i>{{post.date}}</i></small>
+                                    <h1>{{ post.title.rendered }}</h1>
+                                        <span v-if="post._embedded['author']">Posted by <strong>{{ post._embedded['author'][0].name }}</strong></span> / <span v-if="post.date">{{ post.date }}</span>
                                 </div>
                                 <img class="img-fluid" v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
-                                <div class="py-4">
+                                <div class="post-content-wrapper py-4">
                                     <div v-html="post.content.rendered"></div>
                                 </div>
                                 
-                                <!-- {{ $route.params.slug }} -->
                             </div>
                             <div class="card-footer">
                                 <ul class="list-inline"  v-if="post._embedded['wp:term']">
-                                    <li class="list-inline-item" v-for="category in post._embedded['wp:term']" v-bind:key="category.id">
+                                    <li class="list-inline-item" v-for="category in post._embedded['wp:term'][0]" v-bind:key="category.id">
                                         <span class="badge bg-secondary">
                                             <nuxt-link :to="{ path: '/category/' + category.slug }">{{category.name}}</nuxt-link>
                                         </span>

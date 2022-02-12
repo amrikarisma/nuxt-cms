@@ -1,17 +1,9 @@
 <template>
-    <div class="main">
+    <div>
         <Navbar />
+        <div class="main">
            <slot />
+        </div>
         <Footer />
     </div>
 </template>
-
-<script>
-// export default {
-//     asyncData() {
-//         return {
-//             rendering: 'server'
-//         }
-//     },
-// }
-</script>
