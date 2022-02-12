@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   plugins: [
 
   ],
-  head: {
+  meta: {
     title: 'Nuxt CMS Blog',
     meta: [
       { charset: 'utf-8' },
@@ -36,17 +36,14 @@ export default defineNuxtConfig({
     script: [
       {
         src: 'https://use.fontawesome.com/releases/v5.15.4/js/all.js',
-        body: true,
       },
       {
-        src: '~/js/bootstrap.bundle.min.js',
+        src: '/js/bootstrap.bundle.min.js',
         type: 'text/javascript',
-        body: true,
       },
       {
-        src : '~/js/scripts.js',
+        src : '/js/scripts.js',
         type: 'text/javascript',
-        body :true
       }
     ],
   }

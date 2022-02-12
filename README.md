@@ -1,4 +1,4 @@
-# Nuxt.js Example
+# Trying to make CMS with Nuxt.js 3 Beta
 
 Deploy your [Nuxt.js](https://nuxtjs.org) project.
 
