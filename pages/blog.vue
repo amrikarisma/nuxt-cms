@@ -1,13 +1,16 @@
 <template>
-    <Blog />
+    <Blog :filter = filter />
 </template>
 
 <script>
 export default {
     layout : 'blog',
+    scrollToTop: true,
+
     data() {
       return {
-        title: 'Blog - Nuxt CMS Blog'
+        title: 'Blog - Nuxt CMS Blog',
+        filter : 'index'
       }
     },
     head() {

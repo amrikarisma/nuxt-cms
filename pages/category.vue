@@ -1,13 +1,14 @@
 <template>
-    <Blog />
+    <Category :filter = filter />
 </template>
 
 <script>
 export default {
-    layout : 'Category',
+    layout : 'blog',
     data() {
       return {
-        title: 'Category - Nuxt CMS Blog'
+        title: 'Category - Nuxt CMS Blog',
+        filter : 'category',
       }
     },
     head() {

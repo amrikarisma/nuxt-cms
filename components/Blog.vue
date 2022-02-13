@@ -1,7 +1,13 @@
 <script setup>
     const route = useRoute()
     let currentPage = route.params.page;
-    const { data : posts, pending, error } = useAsyncData('posts', () => $fetch(`/wp-json/wp/v2/posts?page=${currentPage || 1 }&_embed`, { baseURL : 'https://www.kentos.org' }))
+    const { data : posts, pending, error } = useAsyncData('posts', () => $fetch(`/wp-json/wp/v2/posts`, { 
+        baseURL : 'https://www.kentos.org',
+        params : {
+            'page'  : currentPage || 1,
+            '_embed' : ''
+        }
+    }))
 </script>
 <template>
     <section class="page-section page-blog" id="blog">
