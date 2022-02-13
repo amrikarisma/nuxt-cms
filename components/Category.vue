@@ -20,7 +20,6 @@
             '_embed' : ''
         }
     }))
-    console.log(category.value)
 
 </script>
 <template>
