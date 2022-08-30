@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   publicRuntimeConfig: {
   },
-  
+
   css: [
     '~/assets/scss/main.scss',
   ],
@@ -43,9 +43,17 @@ export default defineNuxtConfig({
         type: 'text/javascript',
       },
       {
-        src : '/js/scripts.js',
+        src: '/js/scripts.js',
         type: 'text/javascript',
       }
     ],
+  },
+  vite: {
+    server: {
+      hmr: {
+        protocol: 'ws',
+        host: 'localhost'
+      }
+    }
   }
 })

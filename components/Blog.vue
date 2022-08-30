@@ -1,13 +1,13 @@
 <script setup>
-    const route = useRoute()
-    let currentPage = route.params.page;
-    const { data : posts, pending, error } = useAsyncData('posts', () => $fetch(`/wp-json/wp/v2/posts`, { 
-        baseURL : 'https://www.kentos.org',
-        params : {
-            'page'  : currentPage || 1,
-            '_embed' : ''
-        }
-    }))
+const route = useRoute()
+let currentPage = route.params.page;
+const { data: posts, pending, error } = useAsyncData('posts', () => $fetch(`/wp-json/wp/v2/posts`, {
+    baseURL: 'https://lagiviral.id',
+    params: {
+        'page': currentPage || 1,
+        '_embed': ''
+    }
+}))
 </script>
 <template>
     <section class="page-section page-blog" id="blog">
@@ -15,21 +15,26 @@
         <p v-else-if="error">Error while fetching posts</p>
         <div v-else-if="posts">
             <div v-if="posts.length > 0">
-                <div class="row" >
+                <div class="row">
                     <article class="col-md-12 mb-4" v-for="(post, index) in posts || [] " :key="index">
                         <div class="card">
                             <div class="row">
                                 <div class="col-md-4">
                                     <NuxtLink :to="{ path: '/post/' + post.slug }" class="post-thumbnail">
-                                        <img class="img-fluid" v-if="post._embedded['wp:featuredmedia']" :src="post._embedded['wp:featuredmedia'][0].source_url" />
+                                        <img class="img-fluid" v-if="post._embedded['wp:featuredmedia']"
+                                            :src="post._embedded['wp:featuredmedia'][0].source_url" />
                                     </NuxtLink>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <div class="mb-2">
-                                            <span v-if="post._embedded['author']">Posted by <strong>{{ post._embedded['author'][0].name }}</strong></span> / <span v-if="post.date">{{ post.date }}</span>
+                                            <span v-if="post._embedded['author']">Posted by <strong>{{
+                                                     post._embedded['author'][0].name  }}</strong></span> / <span
+                                                v-if="post.date">{{  post.date  }}</span>
                                         </div>
-                                        <NuxtLink :to="{ path: '/post/' + post.slug }"><h2>{{ post.title.rendered }}</h2></NuxtLink>
+                                        <NuxtLink :to="{ path: '/post/' + post.slug }">
+                                            <h2>{{  post.title.rendered  }}</h2>
+                                        </NuxtLink>
                                         <div v-html="post.excerpt.rendered"></div>
                                         <div>
                                             <NuxtLink :to="{ path: '/post/' + post.slug }">Read More</NuxtLink>
@@ -42,10 +47,12 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <NuxtLink :to="{ path: '/blog/' + (currentPage > 1 ? parseInt(currentPage)-1 : 1) }" class="btn btn-primary">Previous</NuxtLink>
+                        <NuxtLink :to="{ path: '/blog/' + (currentPage > 1 ? parseInt(currentPage) - 1 : 1) }"
+                            class="btn btn-primary">Previous</NuxtLink>
                     </div>
                     <div class="col">
-                        <NuxtLink :to="{ path: '/blog/' + (currentPage > 0 ? parseInt(currentPage)+1 : 1) }" class="btn btn-primary">Next</NuxtLink>
+                        <NuxtLink :to="{ path: '/blog/' + (currentPage > 0 ? parseInt(currentPage) + 1 : 1) }"
+                            class="btn btn-primary">Next</NuxtLink>
                     </div>
                 </div>
             </div>
